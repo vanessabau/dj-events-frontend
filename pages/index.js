@@ -23,17 +23,7 @@ export default function HomePage({ events }) {
   );
 }
 
-// export async function getStaticProps() {
-//   const res = await fetch(`${API_URL}/api/events`);
-//   const events = await res.json();
-
-//   return {
-//     props: { events: events.slice(0, 3) },
-//     revalidate: 1,
-//   };
-// }
-
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`${API_URL}/api/events`);
   const events = await res.json();
 
@@ -42,3 +32,13 @@ export async function getServerSideProps() {
     revalidate: 1,
   };
 }
+
+// export async function getServerSideProps() {
+//   const res = await fetch(`${API_URL}/api/events`);
+//   const events = await res.json();
+
+//   return {
+//     props: { events: events.slice(0, 3) },
+//     revalidate: 1,
+//   };
+// }

@@ -16,17 +16,7 @@ export default function EventsPage({ events }) {
   );
 }
 
-// export async function getStaticProps() {
-//   const res = await fetch(`${API_URL}/api/events`);
-//   const events = await res.json();
-
-//   return {
-//     props: { events },
-//     revalidate: 1,
-//   };
-// }
-
-export async function getServerSideProps({ query: { slug } }) {
+export async function getStaticProps() {
   const res = await fetch(`${API_URL}/api/events`);
   const events = await res.json();
 
@@ -35,3 +25,13 @@ export async function getServerSideProps({ query: { slug } }) {
     revalidate: 1,
   };
 }
+
+// export async function getServerSideProps() {
+//   const res = await fetch(`${API_URL}/api/events`);
+//   const events = await res.json();
+
+//   return {
+//     props: { events },
+//     revalidate: 1,
+//   };
+// }
